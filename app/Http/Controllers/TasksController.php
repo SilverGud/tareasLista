@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
@@ -36,10 +36,10 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $task = Task::create($data);
-        // return redirect()->route('tasks.index');
+        $all = $request->all();
+        $task = Task::create($all);
         return response()->json($task);
+        // return redirect()->route('tasks.index');
     }
 
     /**
@@ -73,10 +73,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $task = Task::find($id);
-        $task->is_done = true;
-        $task->save();
-        return response()->json($task);
+        //
     }
 
     /**
@@ -87,7 +84,6 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        Task::destroy($id);
-        return response()->json(["id" => $id]);
+        //
     }
 }
